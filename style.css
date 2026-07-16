@@ -1,0 +1,312 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+label {
+    text-align: center;
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.id__box {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.id__box label {
+    flex: 1 1 200px;
+    margin-right: 10px;
+}
+
+.id__box input {
+    flex: 2 1 300px;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+input,
+button {
+    font-size: 14px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    display: block;
+    margin: 0 auto;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    background-color: #1d6fa5;
+}
+
+/* Стили для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2980b9;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #ecf0f1;
+}
+
+/* Стиль для кнопки добавления строки */
+#items button {
+    background-color: #2ecc71;
+    margin-top: 10px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Контейнер блока */
+.button-container {
+    background: #ffffff;
+    border: 1px solid #dfe4ea;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Заголовок внутри блока */
+.title-save-load {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Сами кнопки */
+.kp-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+}
+
+.btn-save,
+.btn-load {
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-save {
+    background-color: #2ecc71;
+    border-color: #27ae60;
+    color: #fff;
+}
+
+.btn-load {
+    background-color: #3498db;
+    border-color: #2980b9;
+    color: #fff;
+}
+
+.btn-save:hover,
+.btn-load:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+/* Чек боксы */
+.org-select-box {
+    background: #fff;
+    border: 1px solid #dfe4ea;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+#orgCheckboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.org-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.org-checkbox-item input {
+    width: auto;
+    margin: 0;
+}
+
+/* Модальное окно загрузки кп */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 5% auto;
+    padding: 15px;
+
+    width: 600px;
+    max-height: 80vh; /* ограничение по высоте */
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#closeModal {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+#kpListContainer {
+    margin-top: 10px;
+
+    overflow-y: auto; /* 🔥 ВКЛЮЧАЕТ СКРОЛЛ */
+    max-height: 60vh; /* 🔥 ОГРАНИЧИВАЕТ ВЫСОТУ */
+}
+
+#kpListContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+#kpListContainer::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Кнопки в модальном окне загрузить и удалить */
+.kp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px;
+    margin-bottom: 6px;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.kp-actions button {
+    margin-left: 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.load-btn {
+    background: #2ecc71;
+    color: white;
+    border: none;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+}
+
+/* ======================= */
+/* Подсказки автозаполнения */
+/* ======================= */
+.suggestions {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.suggestion-item {
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active {
+    background-color: #3498db;
+    color: #fff;
+}

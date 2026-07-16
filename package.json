@@ -1,0 +1,44 @@
+{
+    "name": "kp-generate",
+    "version": "2.0.0",
+    "description": "Генератор коммерческих предложений",
+    "author": "Luzin Pavel (SlimWoody)",
+    "main": "main.js",
+    "scripts": {
+        "start": "cross-env NODE_ENV=development electron .",
+        "build": "cross-env NODE_ENV=production electron-builder --ia32 --x64"
+    },
+    "devDependencies": {
+        "cross-env": "^10.1.0",
+        "electron": "^9.4.4",
+        "electron-builder": "^22.14.5"
+    },
+    "dependencies": {
+        "asar": "^3.2.0",
+        "electron-store": "^5.2.0"
+    },
+    "build": {
+        "appId": "com.slimwoody.kpgenerator",
+        "productName": "KP GEN",
+        "artifactName": "${productName}-v${version}-setup.${ext}",
+        "win": {
+            "icon": "build/KP_GEN.ico",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "ia32",
+                        "x64"
+                    ]
+                },
+                {
+                    "target": "zip",
+                    "arch": [
+                        "ia32",
+                        "x64"
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Генератор КП</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    </head>
+    <body>
+        <h1>Коммерческое предложение</h1>
+
+        <label for="clientName">Наименование организации:</label>
+        <input
+            type="text"
+            id="clientName"
+            placeholder="Введите название организации"
+        />
+        <div class="id__box">
+            <label for="oktava-id"> ID Октава-Мед</label>
+            <input type="text" class="id-number-kp" />
+
+            <label for="spectr-id"> ID Спектр</label>
+            <input type="text" class="id-number-kp" />
+
+            <label for="pharm-line-id"> ID Фарм лайн</label>
+            <input type="text" class="id-number-kp" />
+        </div>
+
+        <!-- Таблица с товарами -->
+        <table id="items">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Ед. изм.</th>
+                    <th>Кол-во</th>
+                    <th>Цена</th>
+                    <th>Наценка %</th>
+                    <th>Итого</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Здесь будут добавляться строки таблицы -->
+            </tbody>
+        </table>
+
+        <button onclick="addRow()">Добавить строку</button>
+
+        <!-- Чек бокс с выбором организаций -->
+        <div class="org-select-box">
+            <h3>Выберите организации для генерации КП</h3>
+            <div id="orgCheckboxes"></div>
+        </div>
+        <!-- Кнопка генерации КП -->
+        <button id="generatePDF">Сгенерировать КП</button>
+
+        <!-- Кнопки сохранения и загрузки уже сгенерированного КП -->
+        <div class="button-container">
+            <h2 class="title-save-load">Сохранение и загрузка КП</h2>
+            <div class="kp-buttons">
+                <button class="btn-save" onclick="saveCurrentKP()">
+                    Сохранить КП
+                </button>
+            </div>
+        </div>
+        <button onclick="openKPModal()">Показать КП</button>
+        <!-- Модальное окно для отображения списка сохраненных КП -->
+        <div id="kpModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Сохранённые КП</h3>
+                    <span id="closeModal">&times;</span>
+                </div>
+                <div id="kpListContainer"></div>
+            </div>
+        </div>
+
+        <script src="./script.js"></script>
+        <script src="./kpStorage.js"></script>
+    </body>
+</html>
